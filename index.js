@@ -15,12 +15,16 @@ function createWindow() {
     height: 600
   }
   win = new BrowserWindow(screen);
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
-  win.on('closed', () => { win = null });
+  // win.loadURL(url.format({
+  //   pathname: path.join(__dirname, 'index.html'),
+  //   protocol: 'file:',
+  //   slashes: true
+  // }))
+  win.loadURL(`file://${__dirname}/index.html`);
+  // win.webContents.openDevTools();
+  win.on('closed', () => {
+    win = null
+  });
 };
 
 // アプリケーションの起動時
